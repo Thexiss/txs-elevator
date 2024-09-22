@@ -52,10 +52,14 @@ Follow these steps to install the **QB-Core Elevator Script** on your server.
    }
    ```
 
+Sure! Here's the updated section for the README, including how to use the export for dynamically adding elevators.
+
+---
+
 ## Usage
 
-### Add a New Elevator
-To add a new elevator to the game, follow these steps:
+### Add a New Elevator via Config
+To add a new elevator manually through the config, follow these steps:
 
 1. Open the `config.lua` file.
 2. Add a new elevator configuration using the following format:
@@ -73,51 +77,31 @@ To add a new elevator to the game, follow these steps:
 
 3. Customize the **coordinates** for each floor as per your map's layout.
 
+### Dynamically Add a New Elevator via Export
+To dynamically add a new elevator from another script, use the provided **export**. This is particularly useful if you want to add elevators programmatically at runtime without modifying the config file.
+
+#### Example:
+```lua
+exports['qb-elevator']:AddElevator('police_station_elevator', {
+    label = "Police Station Elevator",
+    floors = {
+        [0] = {label = "Ground Floor", coords = {x = 441.20, y = -982.50, z = 30.69}},
+        [1] = {label = "Basement", coords = {x = 441.20, y = -982.50, z = 26.67}},
+        [2] = {label = "Roof", coords = {x = 441.20, y = -982.50, z = 43.43}},
+    }
+})
+```
+
 ### Floor Highlighting
-When a player opens the elevator UI, the floor they are currently on will be automatically detected and highlighted in the UI.
+When a player opens the elevator UI, the floor they are currently on will be automatically detected and highlighted in the UI, making it easy to see their current location.
 
 ### How to Use
 - Players can interact with the elevator using the **qb-target** prompt.
 - Use the **ESC** key to close the elevator menu.
 
-## Configuration
+---
 
-### `config.lua`
-This file contains all the elevator data. You can add or modify elevators here. Example structure:
-
-```lua
-Config.Elevators = {
-    ["police_elevator"] = {
-        label = "LSPD",
-        floors = {
-            [1] = {label = "Ground Floor", coords = {x = 441.20, y = -982.50, z = 30.69}},
-            [2] = {label = "First Floor", coords = {x = 441.20, y = -982.50, z = 35.00}},
-            [3] = {label = "Second Floor", coords = {x = 441.20, y = -982.50, z = 40.00}},
-        }
-    }
-}
-```
-
-### Example Config
-```lua
-Config.Elevators = {
-    ["hospital_elevator"] = {
-        label = "Hospital",
-        floors = {
-            [1] = {label = "Ground Floor", coords = {x = 338.85, y = -1394.56, z = 32.51}},
-            [2] = {label = "First Floor", coords = {x = 338.85, y = -1394.56, z = 39.00}},
-        }
-    },
-    ["police_station_elevator"] = {
-        label = "LSPD",
-        floors = {
-            [1] = {label = "Ground Floor", coords = {x = 441.20, y = -982.50, z = 30.69}},
-            [2] = {label = "Basement", coords = {x = 441.20, y = -982.50, z = 26.67}},
-            [3] = {label = "Roof", coords = {x = 441.20, y = -982.50, z = 43.43}},
-        }
-    }
-}
-```
+This update now includes the dynamic **export** functionality, allowing you to add elevators programmatically! 🚀 Let me know if you need any further changes or additions!
 
 ## Key Bindings
 
