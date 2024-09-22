@@ -30,10 +30,34 @@ local function OpenElevatorMenu(elevatorName)
     })
 end
 
+exports('AddElevator', function(elevatorName, elevatorData)
+    Config.Elevators[elevatorName] = elevatorData
+    for floorIndex, floor in pairs(elevatorData.floors) do
+        exports['qb-target']:AddBoxZone("elevator_" .. elevatorName .. "_" .. floorIndex, floor.targetCoords, 1.5, 1.5, {
+            name = "elevator_" .. elevatorName .. "_" .. floorIndex,
+            heading = 0,
+            debugPoly = false,
+            minZ = floor.coords.z - 1,
+            maxZ = floor.coords.z + 1,
+        }, {
+            options = {
+                {
+                    type = "client",
+                    event = "txs-elevator:client:openMenu",
+                    icon = "fas fa-arrow-up",
+                    label = elevatorData.targetLabel,
+                    elevatorName = elevatorName
+                }
+            },
+            distance = 1.5
+        })
+    end
+end)
+
 CreateThread(function()
     for elevatorName, elevatorData in pairs(Config.Elevators) do
         for floorIndex, floor in pairs(elevatorData.floors) do
-            exports['qb-target']:AddBoxZone("elevator_" .. elevatorName .. "_" .. floorIndex, vector3(floor.coords.x, floor.coords.y, floor.coords.z), 1.5, 1.5, {
+            exports['qb-target']:AddBoxZone("elevator_" .. elevatorName .. "_" .. floorIndex, floor.targetCoords, 1.5, 1.5, {
                 name = "elevator_" .. elevatorName .. "_" .. floorIndex,
                 heading = 0,
                 debugPoly = false,
@@ -45,11 +69,11 @@ CreateThread(function()
                         type = "client",
                         event = "txs-elevator:client:openMenu",
                         icon = "fas fa-arrow-up",
-                        label = "Use Elevator",
+                        label = elevatorData.targetLabel,
                         elevatorName = elevatorName
                     }
                 },
-                distance = 2.0
+                distance = 1.5
             })
         end
     end
@@ -63,15 +87,14 @@ RegisterNUICallback('selectFloor', function(data, cb)
     local selectedFloor = tonumber(data.floor) + 1
     local elevatorData = Config.Elevators[currentElevator]
     local floorCoords = elevatorData.floors[selectedFloor].coords
-    local reachedFloor = tostring('reached_floor_'..selectedFloor-1)
     SetNuiFocus(false, false)
     DoScreenFadeOut(200)
-    Wait(2000)
-    DoScreenFadeIn(200)
+    Wait(400)
     SetEntityCoords(PlayerPedId(), floorCoords.x, floorCoords.y, floorCoords.z)
+    SetEntityHeading(PlayerPedId(), floorCoords.w)
+    Wait(2000)
+    DoScreenFadeIn(300)
     TriggerServerEvent("InteractSound_SV:PlayWithinDistance", 5.0, 'elevator_ding', 0.5)
-    Wait(2500)
-    TriggerServerEvent("InteractSound_SV:PlayWithinDistance", 5.0, reachedFloor, 0.5)
     cb("ok")
 end)
 
