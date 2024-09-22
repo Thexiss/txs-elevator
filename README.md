@@ -115,7 +115,3 @@ This update now includes the dynamic **export** functionality, allowing you to a
 
 - **Interact** with the elevator using `qb-target`.
 - **Close the menu** with the `ESC` key.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
