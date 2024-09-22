@@ -83,11 +83,11 @@ To dynamically add a new elevator from another script, use the provided **export
 #### Example:
 ```lua
 exports['qb-elevator']:AddElevator('police_station_elevator', {
-    label = "Police Station Elevator",
+    label = "LSPD",
     floors = {
-        [0] = {label = "Ground Floor", coords = {x = 441.20, y = -982.50, z = 30.69}},
-        [1] = {label = "Basement", coords = {x = 441.20, y = -982.50, z = 26.67}},
-        [2] = {label = "Roof", coords = {x = 441.20, y = -982.50, z = 43.43}},
+        [1] = {label = "Ground Floor", coords = {x = 441.20, y = -982.50, z = 30.69}},
+        [2] = {label = "Basement", coords = {x = 441.20, y = -982.50, z = 26.67}},
+        [3] = {label = "Roof", coords = {x = 441.20, y = -982.50, z = 43.43}},
     }
 })
 ```
