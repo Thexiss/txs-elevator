@@ -94,7 +94,6 @@ RegisterNUICallback('selectFloor', function(data, cb)
     SetEntityHeading(PlayerPedId(), floorCoords.w)
     Wait(2000)
     DoScreenFadeIn(300)
-    TriggerServerEvent("InteractSound_SV:PlayWithinDistance", 5.0, 'elevator_ding', 0.5)
     cb("ok")
 end)
 
