@@ -1,10 +1,11 @@
-## Credits
+### Credits
 
 This script was developed by **IIPLAX** and uses the **qb-core** framework along with **qb-target** for interaction. 
 
 ### Contact and Support:
 - For inquiries or support, join the Discord community: [Thexis Discord Store](https://discord.gg/txs)
-- Discord: **IIPLAX** for any questions or custom script requests.
+- Discord: [Thexis Discord Store](https://discord.gg/txs) for any questions or custom script requests.
+
 
 # QB-Core Elevator Script
 
