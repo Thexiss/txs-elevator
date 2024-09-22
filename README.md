@@ -1,3 +1,11 @@
+## Credits
+
+This script was developed by **IIPLAX** and uses the **qb-core** framework along with **qb-target** for interaction. 
+
+### Contact and Support:
+- For inquiries or support, join the Discord community: [Thexis Discord Store](https://discord.gg/txs)
+- Discord: **IIPLAX** for any questions or custom script requests.
+
 # QB-Core Elevator Script
 
 ## Description
@@ -52,10 +60,6 @@ Follow these steps to install the **QB-Core Elevator Script** on your server.
    }
    ```
 
-Sure! Here's the updated section for the README, including how to use the export for dynamically adding elevators.
-
----
-
 ## Usage
 
 ### Add a New Elevator via Config
@@ -101,16 +105,12 @@ When a player opens the elevator UI, the floor they are currently on will be aut
 
 ---
 
-This update now includes the dynamic **export** functionality, allowing you to add elevators programmatically! 🚀 Let me know if you need any further changes or additions!
+This update now includes the dynamic **export** functionality, allowing you to add elevators programmatically! 🚀
 
 ## Key Bindings
 
 - **Interact** with the elevator using `qb-target`.
 - **Close the menu** with the `ESC` key.
-
-## Credits
-
-This script is based on the QB-Core framework and uses qb-target for interaction. Feel free to contribute or modify it for your server.
 
 ## License
 
