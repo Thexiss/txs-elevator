@@ -53,11 +53,12 @@ Follow these steps to install the **QB-Core Elevator Script** on your server.
    Config.Elevators = {
        ["hospital_elevator"] = {
            label = "Hospital",
+           targetLabel = "Elevator",
            floors = {
-               [1] = {label = "Ground Floor", coords = {x = 338.85, y = -1394.56, z = 32.51}},
-               [2] = {label = "First Floor", coords = {x = 338.85, y = -1394.56, z = 39.00}},
+               [1] = {coords = vector4(359.92, -585.01, 28.82, 253.05), targetCoords = vector4(359.91, -583.99, 28.82, 13.99)},
+               [2] = {coords = vector4(339.82, -584.55, 74.17, 241.59), targetCoords = vector4(338.53, -584.04, 74.17, 63.23)},
            }
-       },
+       }
    }
    ```
 
@@ -71,10 +72,11 @@ To add a new elevator manually through the config, follow these steps:
    ```lua
    ["elevator_name"] = {
        label = "Elevator Label",
+       targetLabel = "Elevator Target",
        floors = {
-           [1] = {label = "Ground Floor", coords = {x = 0, y = 0, z = 0}},
-           [2] = {label = "First Floor", coords = {x = 0, y = 0, z = 0}},
-           [3] = {label = "Second Floor", coords = {x = 0, y = 0, z = 0}},
+           [1] = {coords = vector4(0, 0, 0, 0), targetCoords = vector4(0, 0, 0, 0)},
+           [2] = {coords = vector4(0, 0, 0, 0), targetCoords = vector4(0, 0, 0, 0)},
+           [3] = {coords = vector4(0, 0, 0, 0), targetCoords = vector4(0, 0, 0, 0)},
            -- Add more floors as needed
        }
    }
@@ -89,10 +91,11 @@ To dynamically add a new elevator from another script, use the provided **export
 ```lua
 exports['qb-elevator']:AddElevator('police_station_elevator', {
     label = "LSPD",
+    targetLabel = "LSPD Elevator",
     floors = {
-        [1] = {label = "Ground Floor", coords = {x = 441.20, y = -982.50, z = 30.69}},
-        [2] = {label = "Basement", coords = {x = 441.20, y = -982.50, z = 26.67}},
-        [3] = {label = "Roof", coords = {x = 441.20, y = -982.50, z = 43.43}},
+        [1] = {coords = vector4(441.20, -982.50, 30.69, 43.52), targetCoords = vector4(441.20, -982.50, 30.69, 43.52)},
+        [2] = {coords = vector4(441.20, -982.50, 30.69, 43.52), targetCoords = vector4(441.20, -982.50, 30.69, 43.52)},
+        [3] = {coords = vector4(441.20, -982.50, 30.69, 43.52), targetCoords = vector4(441.20, -982.50, 30.69, 43.52)},
     }
 })
 ```
